@@ -27,9 +27,9 @@ const config = {
 				loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
 			},
 			{
-				test: /\.jsx?$/, // 対象となるファイルの拡張子（正規表現可）
-				exclude: /node_modules/, // 除外するファイル/ディレクトリ（正規表現可）
-				loader: 'babel-loader' // 使用するloader
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
 			}
 		]
 	},
