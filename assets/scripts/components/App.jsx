@@ -6,6 +6,6 @@ import React from 'react'
 
 export default () => (
   <div>
-    <h1>ほげほげ!!!</h1>
+    <h1>ほげほげ!!!_?</h1>
   </div>
 )

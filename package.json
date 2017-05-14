@@ -18,7 +18,7 @@
   "homepage": "https://torounit.com/react-theme",
   "scripts": {
     "build": "webpack --config ./webpack/config.babel.js",
-    "start": "webpack-dev-server --config ./webpack/config.babel.js"
+    "start": "webpack-dev-server --config ./webpack/config.babel.js & composer server"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -29,6 +29,7 @@
     "css-loader": "^0.28.0",
     "css-mqpacker": "^5.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "node-jq": "^0.5.4",
     "react-hot-loader": "next",
     "style-loader": "^0.16.1",
     "webpack": "^2.4.1",

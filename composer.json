@@ -6,6 +6,7 @@
     "composer/installers": "^1.0",
     "squizlabs/php_codesniffer": "^2.6",
     "wp-coding-standards/wpcs": "^0.10.0",
+    "wp-cli/wp-cli": "^1.1",
     "johnpbloch/wordpress": "^4.7",
     "wpackagist-theme/twentyseventeen": "^1.0",
     "wpackagist-plugin/built-in-server-helper": "^1.0",
@@ -44,7 +45,7 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "@create-local-config",
+      "@create-env",
       "@clone-theme"
     ],
     "post-update-cmd": [
@@ -59,15 +60,14 @@
       "if [ ! -e server/salt.php ]; then  echo '<?php ' > server/salt.php && curl https://api.wordpress.org/secret-key/1.1/salt/ >> server/salt.php; fi"
     ],
     "clone-theme": [
-      "find . -path './release' -prune -o -path './node_modules' -prune -o -path './dist' -prune -o -path './server' -prune -o -type f -name '*.php' | cpio -pdmu ./server/wordpress/wp-content/themes/react-theme",
-      "cp -R ./assets ./server/wordpress/wp-content/themes/react-theme",
+      "find . -path './vendor' -prune -o -path './release' -prune -o -path './node_modules' -prune -o -path './dist' -prune -o -path './server' -prune -o -type f -name '*.php' | cpio -pdmu ./server/wordpress/wp-content/themes/react-theme",
       "touch ./server/wordpress/wp-content/themes/react-theme/style.css"
     ],
     "install-wp": [
       "bash ./bin/install-wp.sh"
     ],
-    "create-local-config": [
-      "bash ./bin/create-local-config.sh"
+    "create-env": [
+      "bash ./bin/create-env.sh"
     ],
     "import-theme-unit-test": [
       "bash ./bin/import-theme-unit-test.sh"
