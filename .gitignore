@@ -3,8 +3,6 @@ node_modules
 /bundle.js
 all.css
 npm-debug.log
-/style.css
-style.css.map
 release.zip
 vanilla.zip
 dist

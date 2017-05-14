@@ -12,8 +12,8 @@ const config = {
 		'react-hot-loader/patch',
 		'webpack-dev-server/client?http://localhost:' + devServerPort,
 		'webpack/hot/only-dev-server',
-		'./assets/scripts/index.js',
-		'./assets/styles/style.css'
+		'./app/index.js',
+		'./app/index.css'
 	],
 	output: {
 		path: themeDirPath,
@@ -34,7 +34,7 @@ const config = {
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin('style.css'),
+		new ExtractTextPlugin('bundle.css'),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 	],
