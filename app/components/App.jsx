@@ -3,9 +3,13 @@
  */
 
 import React from 'react'
+import ShadowDOM from 'react-shadow';
 
 export default () => (
-  <div>
-    <h1>ほげほげ!!!_?</h1>
-  </div>
+  <ShadowDOM>
+    <div>
+      <style type="text/css">{`:host {color: red;}`}</style>
+      <h1>ほげほげ!!!</h1>
+    </div>
+  </ShadowDOM>
 )
