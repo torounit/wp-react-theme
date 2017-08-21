@@ -38,12 +38,11 @@ add_action( 'after_setup_theme', 'react_theme_setup' );
 function react_theme_scripts() {
 	$theme   = wp_get_theme( get_template() );
 	$version = $theme->get( 'Version' );
-	wp_enqueue_style(  'react_theme-style', get_template_directory_uri() . '/bundle.css', null, $version );
-	wp_enqueue_script( 'react_theme-bundle', get_template_directory_uri() . '/bundle.js', array(
+	wp_enqueue_style(  'react_theme-style', home_url( parse_url( get_theme_file_uri() . '/bundle.css' )['path'] ), null, $version );
+	wp_enqueue_script( 'react_theme-bundle', home_url( parse_url( get_theme_file_uri() . '/bundle.js' )['path'] ), array(
 		'jquery',
 		'underscore',
 	), $version, true );
-
 }
 
 add_action( 'wp_enqueue_scripts', 'react_theme_scripts' );

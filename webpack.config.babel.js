@@ -1,20 +1,19 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import {resolve, dirname, join,basename} from 'path';
 import webpack from 'webpack';
-const baseDir = dirname(__dirname);
-const devServerPort = 4567;
-
+console.log(__dirname + '/resources/');
+console.log('/wp-content/themes/' + basename(__dirname) + '/resources/')
 const config = {
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:' + devServerPort,
+    'webpack-dev-server/client?http://localhost:' + 4567,
     'webpack/hot/only-dev-server',
     './resources/app/index.js',
     './resources/app/index.css'
   ],
   output: {
-    path: __dirname + '/resources/',
-    publicPath: '/wp-content/themes/' + basename(__dirname) + '/resources/',
+    path: __dirname,
+    publicPath: '/wp-content/themes/' + basename(__dirname) + '/resources',
     filename: 'bundle.js'
   },
   module: {
@@ -42,10 +41,13 @@ const config = {
     extensions: ['.js', '.jsx']
   },
   devServer: {
-    contentBase: './',
-    publicPath: '/wp-content/themes/' + basename(__dirname),
-    port: devServerPort,
+    //contentBase: __dirname,
+    //publicPath: '/hoge',
+    publicPath: '/wp-content/themes/' + basename(__dirname) + '/resources',
+    port: 4567,
     hot: true,
+    quiet: false,
+    stats: { colors: true },
     proxy: {
       '**': {
         target: {

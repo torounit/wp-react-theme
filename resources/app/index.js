@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import reducers from './reducers'
-import App from './components/App'
+import App from './containers/App'
 
 const store = createStore(reducers);
 const container = document.querySelector('#app');
@@ -25,7 +25,7 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-	module.hot.accept('./components/App', () => {
+	module.hot.accept('./containers/App', () => {
 		render(App)
 	});
 }
