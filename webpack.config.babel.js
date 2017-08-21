@@ -1,8 +1,7 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import {resolve, dirname, join,basename} from 'path';
+import {resolve, dirname, join, basename} from 'path';
 import webpack from 'webpack';
-console.log(__dirname + '/resources/');
-console.log('/wp-content/themes/' + basename(__dirname) + '/resources/')
+
 const config = {
   entry: [
     'react-hot-loader/patch',
@@ -11,8 +10,9 @@ const config = {
     './resources/app/index.js',
     './resources/app/index.css'
   ],
+  devtool: "source-map",
   output: {
-    path: __dirname,
+    path: __dirname + '/resources',
     publicPath: '/wp-content/themes/' + basename(__dirname) + '/resources',
     filename: 'bundle.js'
   },
@@ -29,6 +29,10 @@ const config = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      { enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
       }
     ]
   },
@@ -38,16 +42,15 @@ const config = {
     new webpack.NamedModulesPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['ts', 'tsx', '.js', '.jsx']
   },
   devServer: {
     //contentBase: __dirname,
-    //publicPath: '/hoge',
     publicPath: '/wp-content/themes/' + basename(__dirname) + '/resources',
     port: 4567,
     hot: true,
     quiet: false,
-    stats: { colors: true },
+    stats: {colors: true},
     proxy: {
       '**': {
         target: {

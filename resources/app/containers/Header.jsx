@@ -7,10 +7,12 @@ const Header = ({name}) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  name: state.name
-});
+// const mapStateToProps = state => ({
+//   name: state.name
+// });
+//
+// export default connect(
+//   mapStateToProps
+// )(Header)
 
-export default connect(
-  mapStateToProps
-)(Header)
+export default Header;

@@ -12,3 +12,5 @@ theme-unit-test-data.xml
 server/salt.php
 resources/bundle.css
 resources/bundle.js
+flow-typed/npm
+*.map
